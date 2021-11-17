@@ -1,7 +1,7 @@
-﻿using Code.Loading.Abstraction;
+﻿using Code.Abstraction;
 using UnityEngine;
 
-namespace Code.Loading.Factory
+namespace Code.Factory
 {
     public interface IFactory:IService
     {

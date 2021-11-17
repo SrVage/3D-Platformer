@@ -1,7 +1,7 @@
 ﻿using DG.Tweening;
 using UnityEngine;
 
-namespace DefaultNamespace
+namespace Code.View
 {
     public class Curtain:MonoBehaviour
     {

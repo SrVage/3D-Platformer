@@ -1,10 +1,9 @@
-﻿using Code.Loading.Abstraction;
-using Code.Loading.Model;
+﻿using Code.Abstraction;
 using DG.Tweening;
 using UnityEngine;
 using UnityEngine.Events;
 
-namespace Code.Loading.InteractableObject.View
+namespace Code.InteractableObject.View
 {
     public class Coin:MonoBehaviour, IInteract
     {

@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.EventSystems;
 
-namespace DefaultNamespace
+namespace Code.View
 {
     public class ButtonUp:MonoBehaviour, IPointerDownHandler
     {

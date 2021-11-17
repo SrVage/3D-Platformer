@@ -1,8 +1,7 @@
-﻿using System;
-using Code.Loading.Abstraction;
+﻿using Code.Abstraction;
 using UnityEngine;
 
-namespace Code.Loading.Hero
+namespace Code.Hero
 {
     public class HeroMove:MonoBehaviour
     {

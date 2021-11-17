@@ -1,9 +1,9 @@
-﻿using Code.Loading.Abstraction;
-using Code.Loading.Factory;
-using Code.Loading.InteractableObject.View;
+﻿using Code.Abstraction;
+using Code.Factory;
+using Code.InteractableObject.View;
 using Code.Loading.Model;
 using Code.Services;
-using DefaultNamespace;
+using Code.View;
 using UnityEngine;
 
 namespace Code.Loading.States

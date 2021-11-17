@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using Code.Loading.Abstraction;
+using Code.Abstraction;
 using UnityEngine;
 
 namespace Code.Loading.Model

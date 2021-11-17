@@ -1,4 +1,4 @@
-﻿using Code.Loading.Abstraction;
+﻿using Code.Abstraction;
 
 namespace Code.Loading.States
 {

@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using Code.Loading.Abstraction;
+using Code.Abstraction;
 using Code.Loading.Model;
 using Code.Services;
-using DefaultNamespace;
+using Code.View;
 
 namespace Code.Loading.States
 {

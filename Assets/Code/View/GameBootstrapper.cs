@@ -1,10 +1,9 @@
-﻿using System;
-using Code.Loading.Abstraction;
+﻿using Code.Abstraction;
 using Code.Loading.Model;
 using Code.Loading.States;
 using UnityEngine;
 
-namespace DefaultNamespace
+namespace Code.View
 {
     public class GameBootstrapper:MonoBehaviour, ICoroutineRunner
     {

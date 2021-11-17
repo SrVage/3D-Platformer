@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections;
-using Code.Loading.Abstraction;
+using Code.Abstraction;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 

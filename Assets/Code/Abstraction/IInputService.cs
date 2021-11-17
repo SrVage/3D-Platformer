@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Code.Loading.Abstraction
+namespace Code.Abstraction
 {
     public interface IInputService:IService
     {

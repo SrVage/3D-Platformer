@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-namespace Code.Loading.Abstraction
+namespace Code.Abstraction
 {
     public interface ICoroutineRunner
     {

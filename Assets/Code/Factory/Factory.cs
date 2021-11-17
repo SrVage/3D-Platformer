@@ -1,12 +1,11 @@
 ﻿using System.Collections.Generic;
-using Code.Loading.Abstraction;
-using Code.Loading.Hero;
+using Code.Abstraction;
+using Code.Hero;
 using Code.Loading.Model;
 using Code.Services;
-using DefaultNamespace;
 using UnityEngine;
 
-namespace Code.Loading.Factory
+namespace Code.Factory
 {
     public class Factory:IFactory
     {

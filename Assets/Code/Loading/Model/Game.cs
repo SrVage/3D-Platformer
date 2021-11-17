@@ -1,7 +1,7 @@
-﻿using Code.Loading.Abstraction;
+﻿using Code.Abstraction;
 using Code.Loading.States;
 using Code.Services;
-using DefaultNamespace;
+using Code.View;
 
 namespace Code.Loading.Model
 {

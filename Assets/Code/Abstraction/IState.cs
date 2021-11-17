@@ -1,4 +1,4 @@
-﻿namespace Code.Loading.Abstraction
+﻿namespace Code.Abstraction
 {
     public interface IState:IExitableState
     {
