@@ -1,6 +1,7 @@
 ﻿using Code.Abstraction;
 using Code.Loading.Model;
 using Code.Loading.States;
+using UnityEngine;
 
 namespace Code.Services
 {
@@ -9,6 +10,7 @@ namespace Code.Services
         private readonly GameStateMachine _stateMachine;
         public int CurrentLevel => _currentLevel.CurentLevel;
         private CurrentLevel _currentLevel;
+        private IObserver<int> _observer;
 
         public ChangeLevelNumber(GameStateMachine stateMachine)
         {
@@ -18,21 +20,26 @@ namespace Code.Services
 
         public void Init(IObserver<int> observer)
         {
+            _observer = observer;
             observer.Subscribe(this);
+        }
+
+        public void ChangeValue(int value)
+        {
+            Debug.Log(value);
         }
 
         public void ChangeLevel()
         {
             _currentLevel.ChangeLevel();
+            _observer.Unsubscribe(this);
             _stateMachine.Enter<LoadLevelState>("MainScene");
+            
         }
 
-        public void ChangeValue(int value)
+        public void Finish()
         {
-            if (value > 2)
-            {
-                ChangeLevel();
-            }
+            ChangeLevel();
         }
     }
 }

@@ -1,6 +1,8 @@
 ﻿using Code.Abstraction;
+using Code.Contollers;
 using Code.Factory;
 using Code.Loading.Model;
+using Code.Loading.View;
 using Code.Services;
 using Code.View;
 using UnityEngine;
@@ -15,9 +17,10 @@ namespace Code.Loading.States
         private readonly SceneLoader _sceneLoader;
         private readonly FactoryPrefabs _factoryPrefabs;
         private readonly LevelList _levelList;
+        private readonly Controllers _controllers;
 
         public BootstrapState(GameStateMachine gameStateMachine, Curtain instantiate, ServiceLocator serviceLocator,
-            SceneLoader sceneLoader, FactoryPrefabs factoryPrefabs, LevelList levelList)
+            SceneLoader sceneLoader, FactoryPrefabs factoryPrefabs, LevelList levelList, Controllers controllers)
         {
             _gameStateMachine = gameStateMachine;
             _instantiate = instantiate;
@@ -25,6 +28,7 @@ namespace Code.Loading.States
             _sceneLoader = sceneLoader;
             _factoryPrefabs = factoryPrefabs;
             _levelList = levelList;
+            _controllers = controllers;
             RegisterServices();
         }
 
@@ -45,7 +49,7 @@ namespace Code.Loading.States
             else
                 _serviceLocator.RegisterService<IInputService>(new WindowsInputService());
             _serviceLocator.RegisterService<ILevelChange>(new ChangeLevelNumber(_gameStateMachine));
-            _serviceLocator.RegisterService<IFactory>(new Factory.Factory(_factoryPrefabs, _serviceLocator, _levelList));
+            _serviceLocator.RegisterService<IFactory>(new Factory.Factory(_factoryPrefabs, _serviceLocator, _levelList, _controllers));
         }
 
         private void EnterLoadLevel()

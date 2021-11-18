@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using Code.Abstraction;
+using Code.Contollers;
 using Code.Loading.Model;
+using Code.Loading.View;
 using Code.Services;
 using Code.View;
 
@@ -12,12 +14,12 @@ namespace Code.Loading.States
         private readonly Dictionary<Type, IExitableState> _states;
         private IExitableState _activeState;
         public GameStateMachine(Curtain curtain, ServiceLocator serviceLocator, SceneLoader sceneLoader,
-            FactoryPrefabs factoryPrefabs, LevelList levelList)
+            FactoryPrefabs factoryPrefabs, LevelList levelList, Controllers controllers)
         {
             _states = new Dictionary<Type, IExitableState>
             {
-                [typeof(BootstrapState)] = new BootstrapState(this, curtain, serviceLocator, sceneLoader, factoryPrefabs, levelList),
-                [typeof(LoadLevelState)] = new LoadLevelState(this, curtain, serviceLocator, sceneLoader),
+                [typeof(BootstrapState)] = new BootstrapState(this, curtain, serviceLocator, sceneLoader, factoryPrefabs, levelList, controllers),
+                [typeof(LoadLevelState)] = new LoadLevelState(this, curtain, serviceLocator, sceneLoader, levelList),
                 [typeof(GameLoopState)] = new GameLoopState(this)
             };
         }

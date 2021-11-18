@@ -11,6 +11,12 @@ namespace Code.InteractableObject.View
         public void Init(UnityAction changeScores)
         {
             _action = changeScores;
+            Rotate();
+        }
+
+        private void Rotate()
+        {
+            transform.DOShakeRotation(2, Vector3.up*50, 2, 90, false).OnComplete(Rotate);
         }
         public void Interact()
         {

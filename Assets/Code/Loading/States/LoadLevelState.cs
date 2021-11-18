@@ -2,6 +2,7 @@
 using Code.Factory;
 using Code.InteractableObject.View;
 using Code.Loading.Model;
+using Code.Loading.View;
 using Code.Services;
 using Code.View;
 using UnityEngine;
@@ -18,12 +19,13 @@ namespace Code.Loading.States
         private IFactory _factory;
 
         public LoadLevelState(GameStateMachine gameStateMachine, Curtain curtain, ServiceLocator serviceLocator,
-            SceneLoader sceneLoader)
+            SceneLoader sceneLoader, LevelList levelList)
         {
             _gameStateMachine = gameStateMachine;
             _curtain = curtain;
             _serviceLocator = serviceLocator;
             _sceneLoader = sceneLoader;
+            _levelList = levelList;
             _factory = _serviceLocator.Single<IFactory>();
         }
 
@@ -46,15 +48,24 @@ namespace Code.Loading.States
 
         private void InitializeWorld()
         {
-            _factory.CreateLevel();
-            _factory.CreateJoystick();
-            var hero = _factory.CreateHero();
-            Object.FindObjectOfType<CameraFollowing>().Init(hero.transform);
-            var scores = new Scores<int>();
+            CreateInFactory();
+            CreateScores();
+            _gameStateMachine.Enter<GameLoopState>();
+        }
+
+        private void CreateScores()
+        {
+            var scores = new Scores<int>(_levelList.LevelConfigs[_serviceLocator.Single<ILevelChange>().CurrentLevel%_levelList.LevelConfigs.Count].MaxScores);
             InitCoin(scores);
             Object.FindObjectOfType<ScoresView>().Init(scores);
             _serviceLocator.Single<ILevelChange>().Init(scores);
-            _gameStateMachine.Enter<GameLoopState>();
+        }
+
+        private void CreateInFactory()
+        {
+            _factory.CreateLevel();
+            _factory.CreateJoystick();
+            _factory.CreateHero();
         }
 
         private void InitCoin(Scores<int> scores)

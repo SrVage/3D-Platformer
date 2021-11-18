@@ -12,6 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e42ccb6f1ad144cdae423be9920ac5f9, type: 3}
   m_Name: Level List
   m_EditorClassIdentifier: 
-  LevelPrefab:
-  - {fileID: 4073758526657578610, guid: e92027d586ee7714da975f0cdcca664b, type: 3}
-  - {fileID: 4073758526657578610, guid: e083f436809eb0a4c8dee20da071bf9f, type: 3}
+  LevelConfigs:
+  - LevelPrefab: {fileID: 4073758526657578610, guid: e92027d586ee7714da975f0cdcca664b, type: 3}
+    MaxScores: 3
+  - LevelPrefab: {fileID: 3979075052520141281, guid: 9a1df9d413a6e6448bb07e0c598afe3b, type: 3}
+    MaxScores: 5
+  - LevelPrefab: {fileID: 4073758526657578610, guid: e083f436809eb0a4c8dee20da071bf9f, type: 3}
+    MaxScores: 3
